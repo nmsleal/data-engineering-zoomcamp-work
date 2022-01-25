@@ -1,0 +1,8 @@
+SELECT ZF."Zone",
+	COUNT(*) AS TOT
+FROM YELLOW_TAXI_TRIPS T
+LEFT JOIN ZONES ZI ON ZI."LocationID" = T."PULocationID"
+LEFT JOIN ZONES ZF ON ZF."LocationID" = T."DOLocationID"
+WHERE ZI."Zone" = 'Central Park'
+GROUP BY ZF."Zone"
+ORDER BY 2 DESC
